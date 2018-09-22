@@ -8,7 +8,7 @@
 - Inicie o serviço **MYSQL** do *XAMPP*
 
 - Acesse o endereço no seu pc:
-> http://localhost/trabalho-tec-web-II-master/index.php
+> localhost/trabalho-tec-web-II-master/index.php
 
 ou
 
@@ -19,5 +19,5 @@ ou
 - Inicie o serviço **MYSQL** do *XAMPP*
 
 - Acesse o endereço no seu pc:
-> http://localhost/trabalho-tec-web-II-master/index.php
+> localhost/trabalho-tec-web-II-master/index.php
 
