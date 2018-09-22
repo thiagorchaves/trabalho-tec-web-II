@@ -1,21 +1,23 @@
 # trabalho-tec-web-II
-PARA RODAR ESSE PROJETO EXISTEM 2 MANEIRAS:
+## Para rodar esse projeto existem duas maneiras:
 
-1- FAÇA UM GIT CLONE PARA A PASTA "HTDOCS" NO XAMPP
+- Faça um git clone do projeto para a pasta **HTDOCS** no *XAMPP*
 
-1.1 - Start o Servidor Apache do XAMPP
+- Inicie o serviço **Apache** do *XAMPP*
 
-1.2 - Starte o MySql no Xampp
+- Inicie o serviço **MYSQL** do *XAMPP*
 
-1.3 - Acesse o endereço: http://localhost/trabalho-tec-web-II-master/index.php
+- Acesse o endereço no seu pc:
+> http://localhost/trabalho-tec-web-II-master/index.php
 
 ou
 
-2 - BAIXE O .ZIP DESSE PROJETO E EXTRAIA PARA A PASTA "HTDOCS" NA XAMPP
+- Baixe o .zip do projeto e extraia para a pasta **HTDOCS** no *XAMPP*
 
-1.1 - Start o Servidor Apache do XAMPP
+- Inicie o serviço **Apache** do *XAMPP*
 
-1.2 - Starte o MySql no Xampp
+- Inicie o serviço **MYSQL** do *XAMPP*
 
-1.3 - Acesse o endereço: http://localhost/trabalho-tec-web-II-master/index.php
+- Acesse o endereço no seu pc:
+> http://localhost/trabalho-tec-web-II-master/index.php
 
