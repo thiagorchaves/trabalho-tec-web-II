@@ -1,0 +1,80 @@
+html,body {
+  padding: 0px; 
+  margin: 0px;
+  height: 100%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: #e2e9ef;
+  background-image: url("../img/bg2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+/*MENU*/
+.header-topo{
+  background: rgba(226, 233, 239, 0.9) ;
+  text-shadow: 1px 1px 1px white;
+ }
+
+.h1-logo{
+  padding: 0px;
+   margin: 0px ;   
+   color: #365572;
+   text-shadow: 2px 2px 2px #abbfca; 
+   font-size: 40px; 
+   text-align: center;
+   text-transform: uppercase;
+}
+
+.main-index{
+  background: rgb(54, 85, 114,0.6);
+  min-width: 100%;
+  min-height: 600px;
+  padding-bottom: 5px;
+}
+
+.main {
+    margin: 0 auto;
+    background: rgb(54, 85, 114,0.4);
+    border-radius: 50px;
+    max-width: 71%;
+    padding-bottom: 5px;
+
+  }
+
+.div-get-started{
+  padding-top: 10%;
+}
+.div-get-started > h1.ui.inverted.header{
+  color: #e2e9ef;
+  text-shadow: 2px 2px 2px black; 
+  font-size: 50px;
+  text-transform: uppercase;
+  
+}
+
+
+.footer {
+  background: rgba(226, 233, 239, 0.5) ;
+  color: white;
+
+  padding: 10px;
+  margin-top: 100px;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+
+@media all and (min-width: 600px) {
+
+}
+
+@media all and (min-width: 800px) {
+
+}
+

@@ -23,7 +23,7 @@
                     <a href="projetos.php" class="item " style="font-size: 14px;color:#365572; text-transform: uppercase;">
                         Projetos
                     </a>
-                    <a href="cadastra.php" class="item active" style="font-size: 14px;color:#365572; text-transform: uppercase; background: rgb(114, 150, 171,0.4);">
+                    <a href="cadastra.php" class="item " style="font-size: 14px;color:#365572; text-transform: uppercase;">
                         Cadastrar projeto
                     </a>
                     <a href="sobreNos.php" class="item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
@@ -50,7 +50,7 @@
         <!--PRINCIPAL-->
         <main class="main">
             <div class="ui segment">
-                <h2 class="ui right floated header">Cadastrar Projeto</h2>
+                <h2 class="ui right floated header">Editar Projeto</h2>
                 <div class="ui clearing divider"></div>
             </div>
 
@@ -150,7 +150,7 @@
                         </div>
                         <div class="field">
 
-                             <input type="submit" value="Salvar" class="ui black button" >
+                             <input type="submit" value="Editar" class="ui black button" >
                         </div>                    
                 </form>
             </div>
