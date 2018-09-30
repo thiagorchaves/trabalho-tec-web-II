@@ -1,3 +1,49 @@
+<?php
+	if(isset($_POST['salvar'])){
+            
+        $nome = $_POST["nome"];
+        $descricao = $_POST["descricao"];
+        $radioGit;
+        $url_git = $_POST["urlGit"];
+        $radioOn;
+        $url_online = $_POST["urlOnline"];
+        $categoria = $_POST["combobox"];
+        $selecionados; //tecnologias selecionadas
+        $str_tecnologias; 
+        $desafios = $_POST["desafios"];
+
+
+        //TRATAMENTO - RADIO GIT
+        if( isset($_POST["radioGit"]) ){
+            $radioGit = $_POST["radioGit"];
+        }
+        //TRATAMENTO - RADIO ONLINE
+        if ( isset($_POST["radioOn"]) ){
+            $radioOn = $_POST["radioOn"];
+        }
+
+        /*TRATAMENTO - CHECKBOX*/
+        if( isset($_POST["tecnologia"]) ){
+            $selecionados = $_POST["tecnologia"];
+            $str_tecnologias = implode(',',  $selecionados); //converte para string
+            
+        }
+
+
+        $sql = "INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) VALUES (
+            '$nome', '$descricao', '$radioGit','$url_git', '$radioOn', '$url_online' ,'$categoria', '$str_tecnologias', '$desafios')";
+
+        //importa a conexao com o banco
+        include 'banco/conecta.php';
+
+        //execucao da query
+
+        $sql = mysqli_query($conexao,$sql) or die ("Houve erro na gravação dos dados, por favor, clique em voltar e verifique os campos obrigatórios!");
+        
+        header("Location: controle.php");
+
+}else{
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -54,8 +100,9 @@
                 <div class="ui clearing divider"></div>
             </div>
 
+
             <div class="ui segment " style="margin: 0 50px 10px; background: rgba(224, 223, 235, 0.8) ">
-                <form  method="post" action="banco/inserir.php" class="ui form">
+                <form  method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="ui form">
                         <!--Nome-->
                         <div class="inline fields">
                             <label>Nome do Projeto</label>
@@ -88,11 +135,28 @@
                                 <input type="text" name="urlGit" placeholder="Digite a URL do Github">
                             </div>
                         </div>
-                         <!--online?-->
+                        <!--online? + link do on-->
+                        <div class="two fields">
                             <div class="field">
-                                <label>O sistema está online?</label>
+                                <label>O sistema está no online?</label>
+
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="radioOn" value="1" class="hidden">
+                                    <label>Sim</label>
+                                </div>
+
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="radioOn" value="0" class="hidden">
+                                    <label>Não</label>
+                                </div>
+
+                            </div>
+                              <!--online?-->
+                             <div class="field">
+                                <label>Link do sistema</label>
                                 <input type="text" name="urlOnline" placeholder="Digite a URL do projeto">
                             </div>
+                        </div>
                         <!--Categoria-->
                             <div class="field">
                                 <label>Categoria</label>
@@ -144,7 +208,7 @@
                         </div>
                         <div class="field">
 
-                             <input type="submit" value="Salvar" class="ui black button" >
+                             <input type="submit" value="Salvar" name="salvar" class="ui black button" >
                         </div>                    
                 </form>
             </div>
@@ -165,10 +229,16 @@
             $('.ui.checkbox')
                 .checkbox()
                 ;
-
+            
+          
         })()
 
     </script>
+
+    
+<?php
+}//Fechando o else
+?>
 </body>
 
 </html>

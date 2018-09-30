@@ -1,3 +1,10 @@
+<?php
+    include 'banco/conecta.php';
+    $sql = "SELECT * FROM project";
+    $resultado = mysqli_query($conexao,$sql) or die ("Não foi possível realizar a consulta ao banco de dados");
+    
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -51,54 +58,82 @@
             <div class="ui segment">
                 <h2 class="ui right floated header">Seus projetos cadastrados</h2>
                 <div class="ui clearing divider"></div>
+
+                <!-- mensagem de sucesso-->
+               <div class="ui success floating message" style="margin: 0 20 20 20 " hidden>
+                <i class="close icon"></i>
+                <div class="header">
+                    Seu projeto foi cadastrado com sucesso!
+                </div>
             </div>
+            </div>
+
+
 
             <div class="ui segment " style="margin: 50px;">
             <div class="field">
                              <button class="ui black button" onclick="window.open('cadastra.php','_self')">Cadastrar novo projeto</button>
                         </div>   
-                <table class="ui striped table">
-                    <thead>
-                        <tr>
-                        <th>Nome Projeto</th>
-                        <th>Data</th>
-                        <th>Detalhes</th>
-                        <th>Detalhes</th>
-                        <th>Alterar</th>
-                        <th>Excluir</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Projeto Financeiro </td>
-                            <td>10/08/2018</td>
-                            <td>outra coisa</td>
-                            <td><a>Mais detalhes</a></td>
 
-                        <td>
-                            <div class="ui small basic icon buttons">
-                                    <a  class="ui button" href="edita.php"><i class="edit icon"></i></a>
-                                </div>
-                        </td>
-                        <td>
-                            <div class="ui small basic icon buttons">
-                                <a class="ui button" onclick="mostraModal()"><i  id="remover"class="remove icon"></i></a>
-                           
-                                <!--MODAL EXCLUSAO-->
-                                <div class="ui tiny modal">
-                                <div class="header">Tem certeza que deseja excluir o Projeto?</div>
-                                    <div class="actions">
-                                        <div class="ui approve red button">Cancelar</div>
-                                        <div class="ui cancel green button">Excluir</div>
-                                    </div>
+                
+                    <table class="ui striped table">
+                        <thead>
+                            <tr>
+                            <th>Nome Projeto</th>
+                            <th>Descrição</th>
+                            <th>Tem Git?</th>
+                            <th>Está Online?</th>
+                            <th>Ver detalhes</th>
+                            <th>Alterar</th>
+                            <th>Excluir</th>
+                            </tr>
+                        </thead>
+                        <tbody>                  
+<?php
+    while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)) {
+        $id = $linha["id"];
+        $nome = $linha["nome"];
+        $descricao = $linha["description"];
+        $temGit = $linha["have_git"];
+        $estaOnline = $linha["online"];
+?>
+                        <tr>
+                                <td><?php echo $nome;?></td>
+                                <td><?php echo $descricao;?></td>
+                                <td><?php echo $temGit;?></td>      
+                                <td><?php echo $estaOnline;?></td>     
+                                <td><a href="">ver mais</a></td>              
+                                <td>
+                                            <div class="ui small basic icon buttons">
+                                                <a  class="ui button" href="edita.php?id=<?php echo $id;?>"><i class="edit icon"></i></a>
+                                            </div>
+                                        </td>
+                                <td>
+                                        <div class="ui small basic icon buttons">
+                                        <a class="ui button" id="iconExcluir"><i id="remover"class="remove icon"></i></a>
+                                </td>
+                        </tr>
+                        
+                      <!--MODAL EXCLUSAO-->
+                      <div class="ui tiny modal">
+                            <div class="header">Tem certeza que deseja excluir o Projeto: <?php echo $nome ?> ?</div>
+                                <div class="actions">
+                                    <div class="ui approve red button">Cancelar</div>
+                                     <div class="ui cancel green button">Excluir</div>
                                 </div>
                             </div>
-                        </td>
-                        </tr>
+                        </div>
+                  
+<?php
+}//fechando while
+  // Free result set
+  mysqli_free_result($resultado);
 
-                                            
-                    </tbody>
-                </table>
+  mysqli_close($conexao);
+?>
+                     </tbody>
+                    </table>
+
 
         </main>
    
@@ -109,16 +144,31 @@
         crossorigin="anonymous"></script>
     <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
     <script>
-    (function(){
-  
-    })()
-    function mostraModal(){
-        $('.tiny.modal')
-  .modal('show')
-;
-        console.log("clickou")
-    }
+            (function(){
+                'use strict'
+            var modalExcluir = document.querySelectorAll('#iconExcluir');
+            var i = 0;
+            while(modalExcluir){
+                modalExcluir[i].addEventListener("click", exibeModal);
+                i++;
+            }
+            
 
+            function exibeModal(){
+                $('.tiny.modal')
+                .modal('show')
+                ; 
+            }
+            
+            $('.message .close')
+                        .on('click', function() {
+                            $(this)
+                            .closest('.message')
+                            .transition('fade')
+                            ;
+                        })
+                        ;
+            })()
     </script>
 </body>
 

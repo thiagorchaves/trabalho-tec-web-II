@@ -1,31 +1,40 @@
 <?php
 $nome = $_POST["nome"];
 $descricao = $_POST["descricao"];
+$radioGit;
 $url_git = $_POST["urlGit"];
+$radioOn;
 $url_online = $_POST["urlOnline"];
 $categoria = $_POST["combobox"];
+$selecionados; //tecnologias selecionadas
+$str_tecnologias; 
 $desafios = $_POST["desafios"];
-$radioGit;
-$selecionados;
 
-/*TRATAMENTO - RADIO*/
+
+//TRATAMENTO - RADIO GIT
 if( isset($_POST["radioGit"]) ){
  	$radioGit = $_POST["radioGit"];
 }
+//TRATAMENTO - RADIO ONLINE
+if ( isset($_POST["radioOn"]) ){
+	$radioOn = $_POST["radioOn"];
+}
+
 /*TRATAMENTO - CHECKBOX*/
 if( isset($_POST["tecnologia"]) ){
- 	$selecionados = $_POST["tecnologia"];
+	 $selecionados = $_POST["tecnologia"];
+	 $str_tecnologias = implode(',',  $selecionados); //converte para string
+	 
 }
 
 
+$sql = "INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) VALUES (
+	'$nome', '$descricao', '$radioGit','$url_git', '$radioOn', '$url_online' ,'$categoria', '$str_tecnologias', '$desafios')";
 
-$sql = "INSERT INTO project (nome, have_git, link_git, categoria, comentario) VALUES (
-	'$nome', '$radioGit','$url_git', '$categoria', '$desafios')";
-
-//Agora é hora de contatar o mysql
+//importa a conexao com o banco
 include 'conecta.php';
 
-//Inserindo os dados
+//execucao da query
 
 $sql = mysqli_query($conexao,$sql) or die ("Houve erro na gravação dos dados, por favor, clique em voltar e verifique os campos obrigatórios!");
 
