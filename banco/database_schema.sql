@@ -1,4 +1,6 @@
 CREATE DATABASE projetos;
+CREATE USER teste @ % IDENTIFIED BY teste;
+GRANT ALL PRIVILEGES ON * . * TO 'teste'@'%';
 CREATE TABLE projetos.project (
   id int(11) NOT NULL AUTO_INCREMENT,
   nome varchar(255) NOT NULL,
