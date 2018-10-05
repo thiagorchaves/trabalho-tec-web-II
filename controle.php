@@ -1,8 +1,24 @@
 <?php
+    session_start();
     include 'banco/conecta.php';
-    $sql = "SELECT * FROM project";
+
+    if( isset($_SESSION['msg']) ){
+        echo $_SESSION['msg'];
+        unset($_SESSION['msg']);
+    }
+    
+    $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
+    $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+    //setar a quantidade de itens por pagina
+    $qnt_resultados_pg = 5;
+
+       //calcular o inicio visualizacao
+     $inicio = ($qnt_resultados_pg * $pagina) - $qnt_resultados_pg;   
+
+    $sql = "SELECT * FROM project LIMIT $inicio, $qnt_resultados_pg";
     $resultado = mysqli_query($conexao,$sql) or die ("Não foi possível realizar a consulta ao banco de dados");
     
+
 ?>
 
 <!DOCTYPE html>
@@ -59,13 +75,7 @@
                 <h2 class="ui right floated header">Seus projetos cadastrados</h2>
                 <div class="ui clearing divider"></div>
 
-                <!-- mensagem de sucesso-->
-               <div class="ui success floating message" style="margin: 0 20 20 20 " hidden>
-                <i class="close icon"></i>
-                <div class="header">
-                    Seu projeto foi cadastrado com sucesso!
-                </div>
-            </div>
+        
             </div>
 
 
@@ -90,6 +100,7 @@
                         </thead>
                         <tbody>                  
 <?php
+
     while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)) {
         $id = $linha["id"];
         $nome = $linha["nome"];
@@ -109,8 +120,8 @@
                                             </div>
                                         </td>
                                 <td>
-                                        <div class="ui small basic icon buttons">
-                                        <a class="ui button" id="iconExcluir"><i id="remover"class="remove icon"></i></a>
+                                    <div class="ui small basic icon buttons">
+                                    <a class="ui button" id="iconExcluir"><i id="remover"class="remove icon"></i></a>
                                 </td>
                         </tr>
                         
@@ -126,14 +137,57 @@
                   
 <?php
 }//fechando while
-  // Free result set
-  mysqli_free_result($resultado);
+ 
 
-  mysqli_close($conexao);
 ?>
                      </tbody>
                     </table>
 
+    <?php
+    $resultado_pg = "SELECT COUNT(id) AS num_result FROM project";
+    $qnt_registros = mysqli_query($conexao, $resultado_pg);  
+    $linha_pg = mysqli_fetch_assoc($qnt_registros);
+    //echo $linha_pg['num_result'];
+   
+    //determinar quantidade de paginas 
+    $quantidade_paginas = ceil($linha_pg['num_result'] / $qnt_resultados_pg);
+   
+   //limitar os links antes e depois
+   $max_links = 2;
+    //primeira pagina
+   echo '<div class="flex-container">'; 
+   echo '<div class="ui borderless menu" >'; 
+
+   echo '<a class="item" href="controle.php?pagina=1">Primeira </a>'; 
+    //duas paginas antes
+   for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
+        if($pag_ant >= 1){
+            echo '<a class="item" href="controle.php?pagina='.$pag_ant.'"> '.$pag_ant.' </a>';
+        }
+    }
+    //pagina atual
+   echo '<a class="item active">'.$pagina.'</a>';
+
+    //duas paginas depois
+    for($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++){
+        if($pag_dep <= $quantidade_paginas){
+            echo '<a class="item" href="controle.php?pagina='.$pag_dep.'"> '.$pag_dep.' </a>';
+        }
+    }
+
+   echo '<a class="item" href="controle.php?pagina='.$quantidade_paginas.'"> Ultima</a>';
+
+   echo'</div>';//fechando div ui borderless menu 
+   echo'</div>';//fechando div ui borderless menu 
+   mysqli_free_result($resultado);
+
+   mysqli_close($conexao);
+    ?>
+
+     
+                    
+                        
+    
 
         </main>
    

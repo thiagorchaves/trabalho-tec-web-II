@@ -1,6 +1,7 @@
 <?php
+    session_start();
 	if(isset($_POST['salvar'])){
-            
+        
         $nome = $_POST["nome"];
         $descricao = $_POST["descricao"];
         $radioGit;
@@ -26,7 +27,6 @@
         if( isset($_POST["tecnologia"]) ){
             $selecionados = $_POST["tecnologia"];
             $str_tecnologias = implode(',',  $selecionados); //converte para string
-            
         }
 
 
@@ -37,11 +37,15 @@
         include 'banco/conecta.php';
 
         //execucao da query
-
         $sql = mysqli_query($conexao,$sql) or die ("Houve erro na gravação dos dados, por favor, clique em voltar e verifique os campos obrigatórios!");
-        
-        header("Location: controle.php");
-
+      
+        if(mysqli_insert_id($conexao)){
+            $_SESSION['msg'] = "<div class='ui success floating message' style='margin: 0px 20px 20px 20px' ><i  class='close icon'></i><div class='header'>Projeto Cadastrado com sucesso!</div></div>";
+            header("Location: cadastra.php");
+        }else{
+            $_SESSION['msg'] = "<div class='ui negative floating message' style='margin: 0px 20px 20px 20px' ><i  class='close icon'></i><div class='header'>Ocorreu um erro ao cadastrar o projeto!</div></div>";
+            header("Location: cadastra.php");
+        }
 }else{
 ?>
 <!DOCTYPE html>
@@ -99,8 +103,12 @@
                 <h2 class="ui right floated header">Cadastrar Projeto</h2>
                 <div class="ui clearing divider"></div>
             </div>
-
-
+                    <!-- mensagem de sucesso-->
+        <?php  if( isset($_SESSION['msg'])){  ?>        
+            <?php echo $_SESSION['msg']; unset($_SESSION['msg']);?>
+       <?php
+       }
+        ?>
             <div class="ui segment " style="margin: 0 50px 10px; background: rgba(224, 223, 235, 0.8) ">
                 <form  method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="ui form">
                         <!--Nome-->
@@ -230,7 +238,13 @@
                 .checkbox()
                 ;
             
-          
+                $('.message .close')
+                    .on('click', function() {
+                        $(this)
+                        .closest('.message')
+                        .transition('fade')
+                        ;
+                    })
         })()
 
     </script>
