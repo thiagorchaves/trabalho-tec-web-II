@@ -35,7 +35,7 @@ html,body {
 .main {
     margin: 0 auto;
     background: rgb(54, 85, 114,0.4);
-    border-radius: 50px;
+    border-radius: 20px;
     max-width: 71%;
     padding-bottom: 5px;
 

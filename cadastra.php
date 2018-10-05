@@ -127,13 +127,13 @@
                                 <label>O projeto está no GitHub?</label>
 
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="radioGit" value="1" class="hidden">
+                                    <input type="radio" name="radioGit" value="1" >
                                     <label>Sim</label>
                                 </div>
 
 
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="radioGit" value="0" class="hidden">
+                                    <input type="radio" name="radioGit" value="0" >
                                     <label>Não</label>
                                 </div>
 
@@ -149,12 +149,12 @@
                                 <label>O sistema está no online?</label>
 
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="radioOn" value="1" class="hidden">
+                                    <input type="radio" name="radioOn" value="1" >
                                     <label>Sim</label>
                                 </div>
 
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="radioOn" value="0" class="hidden">
+                                    <input type="radio" name="radioOn" value="0" >
                                     <label>Não</label>
                                 </div>
 

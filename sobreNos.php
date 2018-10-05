@@ -74,21 +74,7 @@
                 </div>
  
   </div>
-  <div class="card">
-    <div class="image">
-      <img src="img/joao.jpg">
-    </div>
-    <div class="content">
-      <div class="header">João Rangel</div>
-      <div class="meta">
-        <a href="">LinkedIn</a>
-      </div>
-      <div class="description">
-        João é Analista comercial e aspirante a Desenvolvedor Web
-      </div>
-    </div>
 
-  </div>
   <div class="card">
     <div class="image">
       <img src="img/paulo.jpg">

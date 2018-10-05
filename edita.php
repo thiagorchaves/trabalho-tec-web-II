@@ -1,6 +1,48 @@
  <?php
-                   $id = $_GET["id"];
-                   include 'banco/conecta.php';
+    session_start();
+    include 'banco/conecta.php'; 
+    
+                if(isset($_POST['editar'])) {
+                    $id_post = $_POST["id"];
+                    $nome = $_POST["nome"];
+                    $descricao = $_POST["descricao"];
+                    $radioGit;
+                    $url_git = $_POST["urlGit"];
+                    $radioOn;
+                    $url_online = $_POST["urlOnline"];
+                    $categoria = $_POST["combobox"];
+                    $selecionados; //tecnologias selecionadas
+                    $str_tecnologias; 
+                    $desafios = $_POST["desafios"];
+
+
+                    //TRATAMENTO - RADIO GIT
+                    if( isset($_POST["radioGit"]) ){
+                        $radioGit = $_POST["radioGit"];
+                    }
+                    //TRATAMENTO - RADIO ONLINE
+                    if ( isset($_POST["radioOn"]) ){
+                        $radioOn = $_POST["radioOn"];
+                    }
+
+                    /*TRATAMENTO - CHECKBOX*/
+                    if( isset($_POST["tecnologia"]) ){
+                        $selecionados = $_POST["tecnologia"];
+                        $str_tecnologias = implode(',',  $selecionados); //converte para string
+                    }
+
+                    $sql = "UPDATE project SET id='$id_post',nome='$nome', description='$descricao', have_git='$radioGit',link_git='$url_git', online='$radioOn',link_on='$url_online',categoria='$categoria',tecnologias='$str_tecnologias',comentario='$desafios' WHERE id='$id_post'";
+                   
+                    $resultado = mysqli_query($conexao,$sql) or die ("deu ruim");
+                    if(mysqli_affected_rows($conexao)){
+                        $_SESSION['msg'] = "<div class='ui success floating message' style='margin: 0px 20px 20px 20px' ><i  class='close icon'></i><div class='header'>Projeto atualizado com sucesso!</div></div>";
+                        header("Location: edita.php?id=$id_post");
+                    }else{
+                        $_SESSION['msg'] = "<div class='ui negative floating message' style='margin: 0px 20px 20px 20px' ><i  class='close icon'></i><div class='header'>Ocorreu um erro ao atualizar o projeto!</div></div>";
+                        header("Location: edita.php?id=$id_post");
+                    }
+                }else{                                      
+                    $id = $_GET["id"];                   
                    $sql = "SELECT * FROM project WHERE id='$id'";
                    $resultado = mysqli_query($conexao,$sql) or die ("Não foi possível realizar a consulta ao banco de dados");
                   
@@ -15,6 +57,59 @@
                     $categoria = $linha["categoria"];
                     $tecnologias = $linha["tecnologias"];
                     $comentario = $linha["comentario"];
+
+                    //Tratar input Radio
+                    if($radioGit == 1){ 
+                        $radioGitSim = 'checked';
+                        $radioGitNao = "";
+                    }else{
+                        $radioGitSim = '';
+                        $radioGitNao = "checked";
+                    }
+
+                    if($radioOn == 1){
+                        $radioOnSim = "checked";
+                        $radioOnNao = "";
+                    }else{
+                        $radioOnSim = "";
+                        $radioOnNao = "checked";
+                    }
+
+                                    //Tratar CheckBox
+                    $arrTecnologias = explode(",",  $tecnologias);
+                    $HTML = "";
+                    $CSS = "";
+                    $JAVASCRIPT = "";
+                    $JQUERY = "";
+                    $BOOTSTRAP = "";
+                    $MYSQL = "";
+                    $OUTROS = "";
+                    foreach ($arrTecnologias as $value) {
+                        if($value == "HTML"){
+                            $HTML = "checked";
+                        }
+                        if($value == "CSS"){
+                            $CSS = "checked";
+                        }
+                        if($value == "JavaScript"){
+                            $JAVASCRIPT = "checked";
+                        }
+                        if($value == "JQuery"){
+                            $JQUERY = "checked";
+                        }
+                        if($value == "BootStrap"){
+                            $BOOTSTRAP = "checked";
+                        }
+                        if($value == "MySql"){
+                            $MYSQL = "checked";
+                        }
+                        if($value == "Outros"){
+                            $OUTROS = "checked";
+                        }
+                        
+                        
+                    }
+
 ?>
 
 <!DOCTYPE html>
@@ -73,38 +168,43 @@
                 <h2 class="ui right floated header">Editar Projeto: <?php echo $nome; ?></h2>
                 <div class="ui clearing divider"></div>
             </div>
-
+             <!-- mensagem de sucesso-->
+        <?php  if( isset($_SESSION['msg'])){  ?>        
+            <?php echo $_SESSION['msg']; unset($_SESSION['msg']);?>
+       <?php
+       }
+        ?>   
             <div class="ui segment " style="margin: 0 50px 10px; background: rgba(224, 223, 235, 0.8) ">
-                <form class="ui form">
+                <form class="ui form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
                         <!--Nome-->
                         <div class="inline fields">
                             <label>Nome do Projeto</label>
-                            <input type="text" value="<?php echo $nome; ?>" >
+                            <input type="text" name="id" value="<?php echo $id; ?>" hidden>
+                            <input type="text" name="nome" value="<?php echo $nome; ?>" >
                         </div>
                         <!--Descricao-->
                         <div class="inline fields">
                             <label>Descrição</label>
-                            <textarea rows="2" style="height: 73px;"><?php echo $descricao; ?></textarea>
+                            <textarea rows="2" name="descricao" style="height: 73px;"><?php echo $descricao; ?></textarea>
                         </div>
                         <!--Git-->
                         <div class="two fields">
                             <div class="field">
                                 <label>O projeto está no GitHub?</label>
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="radioGit" value="<?php echo $radioGit; ?>" class="hidden">
+                                    <input type="radio" name="radioGit" value="1"<?php echo $radioGitSim?> >
                                     <label>Sim</label>
                                 </div>
 
-
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="radioGit" value="<?php echo ($radioGit-1); ?>" class="hidden">
+                                    <input type="radio" name="radioGit" value="0"<?php echo $radioGitNao?> >
                                     <label>Não</label>
                                 </div>
                             </div>
                             <div class="field">
                                 <label>Link GitHub</label>
-                                <input type="text" value="<?php echo $url_git; ?>" >
+                                <input type="text" name="urlGit" value="<?php echo $url_git; ?>">
                             </div>
                         </div>
                          <!--online? + link do on-->
@@ -113,12 +213,12 @@
                                 <label>O sistema está no online?</label>
 
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="radioOn" value="1" class="hidden">
+                                    <input type="radio" name="radioOn" value="1"<?php echo $radioOnSim?>>
                                     <label>Sim</label>
                                 </div>
 
                                 <div class="ui radio checkbox">
-                                    <input type="radio" name="radioOn" value="0" class="hidden">
+                                    <input type="radio" name="radioOn" value="0"<?php echo $radioOnNao?>>
                                     <label>Não</label>
                                 </div>
 
@@ -133,43 +233,43 @@
                             <div class="field">
                                 <label>Categoria</label>
                                 <select name="combobox"class="ui search dropdown">
-                                    <option value="games">Games</option>
-                                    <option value="esportes">Esportes</option>
-                                    <option value="política">Política</option>
-                                    <option value="nerd">Nerd</option>
-                                    <option value="adulto">Adulto</option>
-                                    <option value="outros">Outros</option>
+                                    <option value="games" <?php echo $valor=($categoria == 'games')? 'selected': ''?> >Games</option>
+                                    <option value="esportes" <?php echo $valor=($categoria == 'esportes')? 'selected':''?> >Esportes</option>
+                                    <option value="política" <?php echo $valor=($categoria == 'política')?  'selected':''?> >Política</option>
+                                    <option value="nerd" <?php echo $valor=($categoria == 'nerd')?  'selected':''?>>Nerd</option>
+                                    <option value="adulto" <?php echo $valor=($categoria == 'adulto')?  'selected':''?>>Adulto</option>
+                                    <option value="outros" <?php echo $valor=($categoria == 'outros')?  'selected':''?>>Outros</option>
                                 </select>
                             </div>
                         <!--Tecnologias-->
                         <div class="field">
                             <label>Quais Tecnologias foram usadas?</label>
                             <div class="ui checkbox">
-                                <input type="checkbox" name="tecnologia[]" class="hidden" value="HTML">
+                                <input type="checkbox" name="tecnologia[]" class="hidden" value="HTML" <?php echo $HTML; ?>>
                                 <label>HTML</label>
                             </div>
                             <div class="ui checkbox">
-                            <input type="checkbox"  name="tecnologia[]" class="hidden" value="CSS">
+                            <input type="checkbox"  name="tecnologia[]" class="hidden" value="CSS" <?php echo $CSS; ?>>
                                 <label>CSS</label>
                             </div>
                             <div class="ui checkbox">
-                            <input type="checkbox"  name="tecnologia[]"class="hidden" value="JavaScript">
+                            <input type="checkbox"  name="tecnologia[]"class="hidden" value="JavaScript" <?php echo $JAVASCRIPT; ?>>
                                 <label>JavaScript</label>
                             </div>
                             <div class="ui checkbox">
-                            <input type="checkbox"  name="tecnologia[]" class="hidden" value="JQuery">
+                            <input type="checkbox"  name="tecnologia[]" class="hidden" value="JQuery" <?php echo $JQUERY; ?>> 
                                 <label>JQuery</label>
                             </div>
                             <div class="ui checkbox">
-                            <input type="checkbox"  name="tecnologia[]"class="hidden" value="BootStrap">
+                            <input type="checkbox"  name="tecnologia[]"class="hidden" value="BootStrap" <?php echo $BOOTSTRAP; ?>>
                                 <label>BootStrap</label>
                             </div>
                             <div class="ui checkbox">
-                            <input type="checkbox"  name="tecnologia[]"class="hidden" value="MySql">
+                            <input type="checkbox"  name="tecnologia[]"class="hidden" value="MySql" <?php echo $MYSQL; ?>>
                                 <label>MySql</label>
                             </div>
                             <div class="ui checkbox">
-                            <input type="checkbox" name="tecnologia[]"class="hidden" value="Outros">
+                            <input type="checkbox" name="tecnologia[]"class="hidden" value="Outros" <?php echo $OUTROS; ?>>
                                 <label>Outros</label>
                             </div>
                         </div>
@@ -180,7 +280,7 @@
                         </div>
                         <div class="field">
 
-                             <input type="submit" value="Editar" name="editar" class="ui black button" >
+                             <a href="edita.php?id=<?php echo$id?>"><input type="submit" value="Editar" name="editar" class="ui black button" ></a>
                         </div>                    
                 </form>
             </div>
@@ -208,6 +308,9 @@
         })()
 
     </script>
+ <?php
+ }//fechando o else
+  ?>   
 </body>
 
 </html>
