@@ -1,116 +1,62 @@
 <?php
-    session_start();
-	if(isset($_POST['salvar'])){
-        
-        $nome = $_POST["nome"];
-        $descricao = $_POST["descricao"];
-        $radioGit;
-        $url_git = $_POST["urlGit"];
-        $radioOn;
-        $url_online = $_POST["urlOnline"];
-        $categoria = $_POST["combobox"];
-        $selecionados; //tecnologias selecionadas
-        $str_tecnologias; 
-        $desafios = $_POST["desafios"];
-
-
-        //TRATAMENTO - RADIO GIT
-        if( isset($_POST["radioGit"]) ){
-            $radioGit = $_POST["radioGit"];
-        }
-        //TRATAMENTO - RADIO ONLINE
-        if ( isset($_POST["radioOn"]) ){
-            $radioOn = $_POST["radioOn"];
-        }
-
-        /*TRATAMENTO - CHECKBOX*/
-        if( isset($_POST["tecnologia"]) ){
-            $selecionados = $_POST["tecnologia"];
-            $str_tecnologias = implode(',',  $selecionados); //converte para string
-        }
-
-
-        $sql = "INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) VALUES (
-            '$nome', '$descricao', '$radioGit','$url_git', '$radioOn', '$url_online' ,'$categoria', '$str_tecnologias', '$desafios')";
-
-        //importa a conexao com o banco
-        include 'banco/conecta.php';
-
-        //execucao da query
-        $sql = mysqli_query($conexao,$sql) or die ("Houve erro na gravação dos dados, por favor, clique em voltar e verifique os campos obrigatórios!");
-      
-        if(mysqli_insert_id($conexao)){
-            $_SESSION['msg'] = "<div class='ui success floating message' style='margin: 0px 20px 20px 20px' ><i  class='close icon'></i><div class='header'>Projeto Cadastrado com sucesso!</div></div>";
-            header("Location: cadastra.php");
-        }else{
-            $_SESSION['msg'] = "<div class='ui negative floating message' style='margin: 0px 20px 20px 20px' ><i  class='close icon'></i><div class='header'>Ocorreu um erro ao cadastrar o projeto!</div></div>";
-            header("Location: cadastra.php");
-        }
-}else{
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <title>Estácio Web Projects</title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-
 </head>
-
 <body>
     <div class="wrapper">
-
         <!--HEADER-->
         <header class="header-topo">
-        <!--MENU NAVEGAÇÃO-->
+            <!--MENU NAVEGAÇÃO-->
             <nav class="nav">
-                <div class="ui secondary pointing menu">
-                    <a href="index.php" class="item item-menu" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Home
-                    </a>
-                    <a href="projetos.php" class="item " style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Projetos
-                    </a>
-                    <a href="cadastra.php" class="item active" style="font-size: 14px;color:#365572; text-transform: uppercase; background: rgb(114, 150, 171,0.4);">
-                        Cadastrar projeto
-                    </a>
-                    <a href="sobreNos.php" class="item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Sobre nós
-                    </a>
-                    <div class="right menu">
-                        <a href="controle.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                            Painel de Controle
+                    <div class="ui secondary pointing menu">
+                        <a href="index.php" class="item item-menu" style="font-size: 14px;color:#365572; text-transform: uppercase;">
+                            Home
                         </a>
-                        <a class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                            Logout
+                        <a href="projetos.php" class="item " style="font-size: 14px;color:#365572; text-transform: uppercase;">
+                            Projetos
                         </a>
+                        <a href="cadastra.php" class="item active" style="font-size: 14px;color:#365572; text-transform: uppercase; background: rgb(114, 150, 171,0.4);">
+                            Cadastrar projeto
+                        </a>
+                        <a href="sobreNos.php" class="item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
+                            Sobre nós
+                        </a>
+                        <div class="right menu">
+                            <a href="controle.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
+                                Painel de Controle
+                            </a>
+                            <a class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
+                                Logout
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-            </nav>
-
-
+                </nav>
         </header>
         <div>
-        <h1 class="h1-logo">Estácio Web Projects</h1>
+            <h1 class="h1-logo">Estácio Web Projects</h1>
         </div>
-
-        <!--PRINCIPAL-->
+    <!--PRINCIPAL-->
         <main class="main">
             <div class="ui segment">
                 <h2 class="ui right floated header">Cadastrar Projeto</h2>
                 <div class="ui clearing divider"></div>
             </div>
-                    <!-- mensagem de sucesso-->
-        <?php  if( isset($_SESSION['msg'])){  ?>        
-            <?php echo $_SESSION['msg']; unset($_SESSION['msg']);?>
-       <?php
-       }
+        <!-- mensagem de sucesso-->
+        <?php  
+        if( isset($_SESSION['msg'])){         
+            echo $_SESSION['msg']; 
+            unset($_SESSION['msg']);
+        }
         ?>
             <div class="ui segment " style="margin: 0 50px 10px; background: rgba(224, 223, 235, 0.8) ">
-                <form  method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="ui form">
+                <form  method="post" action="banco/create.php" class="ui form">
                         <!--Nome-->
                         <div class="inline fields">
                             <label>Nome do Projeto</label>
@@ -223,12 +169,11 @@
         </main>
 
     <footer class="footer">Footer</footer>
-    </div>
 
+    </div><!--FECHANDO WRAPPER-->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
     <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
-
     <script>
         (function () {
             $('select.dropdown')
@@ -248,11 +193,5 @@
         })()
 
     </script>
-
-    
-<?php
-}//Fechando o else
-?>
 </body>
-
 </html>
