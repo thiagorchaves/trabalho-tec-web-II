@@ -1,13 +1,18 @@
 html,body {
   padding: 0px; 
   margin: 0px;
-  height: 100%;
+  width: 100%;
+    height: 100%;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   background: #e2e9ef;
-  background-image: url("../img/bg2.jpg");
-  background-repeat: no-repeat;
+  background: url("../img/bg2.jpg") no-repeat center top fixed;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   text-align: center;
+  
 }
 /*MENU*/
 .header-topo{

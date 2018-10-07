@@ -101,15 +101,18 @@ while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)) {
                                 <td><?php echo $descricao;?></td>
                                 <td><?php echo $temGit;?></td>      
                                 <td><?php echo $estaOnline;?></td>     
-                                <td><a href="">ver mais</a></td>              
+                                <td>
+                                <div class="ui small basic icon buttons">
+                                    <a class="ui button" href="detalhes.php?id=<?php echo$id;?>"><i class="sign in alternate icon"></i></a></td>              
+                                </div>
                                 <td>
                                             <div class="ui small basic icon buttons">
-                                                <a  class="ui button" href="edita.php?id=<?php echo $id;?>"><i class="edit icon"></i></a>
+                                                <a  class="ui button" href="edita.php?id=<?php echo $id;?>"><i class="pencil alternate icon"></i></a>
                                             </div>
                                         </td>
                                 <td>
                                     <div class="ui small basic icon buttons">
-                                    <a class="ui button" id="iconExcluir" href="banco/excluir.php?id=<?php echo $id;?>" data-confirm='Tem certeza de que deseja excluir o item selecionado?'><i id="remover"class="remove icon"></i></a>
+                                    <a class="ui button" id="iconExcluir" href="banco/excluir.php?id=<?php echo $id;?>" data-confirm='Tem certeza de que deseja excluir o item selecionado?'><i id="remover"class="trash alternate icon"></i></a>
                                     
                                 </td>
                         </tr>

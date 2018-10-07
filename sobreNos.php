@@ -56,8 +56,19 @@
                 <div class="ui clearing divider"></div>
                
             </div>
-
+            
             <div class="ui segment " style="margin: 0 50px 10px; background: rgba(224, 223, 235, 0.8) ">
+            <h4 class="ui horizontal divider header">
+                <i class="child icon"></i>
+                Nossa Motivação
+                </h4>
+                <p style="margin: auto 10%;">O projeto surgiu com a finalizade de centralizar os projetos desenvolvidos pelos
+                alunos de TI da Estácio. Estimulando-os a implementarem na prática os conhecimentos adquiridos
+                na faculdade. </p>
+                <h4 class="ui horizontal divider header">
+                <i class="user secret icon"></i>
+                Desenvolvedores     
+                </h4>
             <div class="ui centered cards" >
             <div class="card">
                 <div class="image">

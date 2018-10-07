@@ -1,3 +1,25 @@
+<?php
+        include 'banco/conecta.php';
+        if( isset($_SESSION['msg']) ){
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+        }
+        
+        $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
+        $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
+        //setar a quantidade de itens por pagina
+        $qnt_resultados_pg = 5;
+    
+           //calcular o inicio visualizacao
+         $inicio = ($qnt_resultados_pg * $pagina) - $qnt_resultados_pg;   
+    
+        $sql = "SELECT * FROM project LIMIT $inicio, $qnt_resultados_pg";
+        
+        $resultado = mysqli_query($conexao,$sql) or die ("Não foi possível realizar a consulta ao banco de dados");
+
+        
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -52,38 +74,16 @@
                         <h2 class="ui right floated header">Projetos</h2>
                         <div class="ui clearing divider"></div>
                     </div>
-         
-                    <div class="ui centered link cards" style="margin: 0px;">
-
-<?php
-        include 'banco/conecta.php';
-        if( isset($_SESSION['msg']) ){
-            echo $_SESSION['msg'];
-            unset($_SESSION['msg']);
-        }
-        
-        $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
-        $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
-        //setar a quantidade de itens por pagina
-        $qnt_resultados_pg = 10;
-    
-           //calcular o inicio visualizacao
-         $inicio = ($qnt_resultados_pg * $pagina) - $qnt_resultados_pg;   
-    
-        $sql = "SELECT * FROM project LIMIT $inicio, $qnt_resultados_pg";
-        
-        $resultado = mysqli_query($conexao,$sql) or die ("Não foi possível realizar a consulta ao banco de dados");
-
-        
-
-                while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)){
-                    $id = $linha["id"];
-                    $nome = $linha["nome"];
-                    $descricao = $linha["description"];
-                    $data = $linha["createdate"];
-               
-?>
-                        <div class="card">
+                    <div class="ui centered cards" style="margin: 0px;">   
+  <?php
+while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)){
+    $id = $linha["id"];
+    $nome = $linha["nome"];
+    $descricao = $linha["description"];
+    $data = $linha["createdate"];             
+?>                 
+                                 
+                        <a href="detalhes.php?id=<?php echo$id;?>" class="card">
                             <div class="image">
                                 <img src="img/projetos/<?php echo rand(1, 10);?>.jpg">
                             </div>
@@ -98,7 +98,8 @@
                                 </span>
                                 
                             </div>
-                        </div>
+                        </a>
+                        
 <?php
 }
 ?>  

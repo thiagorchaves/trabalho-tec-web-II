@@ -70,7 +70,7 @@ session_start();
                         <!--Radio + link do Git-->
                         <div class="two fields">
                             <div class="field">
-                                <label>O projeto está no GitHub?</label>
+                                <label><i class="github icon"></i>O projeto está no GitHub?</label>
 
                                 <div class="ui radio checkbox">
                                     <input type="radio" name="radioGit" value="1" >
@@ -92,7 +92,7 @@ session_start();
                         <!--online? + link do on-->
                         <div class="two fields">
                             <div class="field">
-                                <label>O sistema está no online?</label>
+                                <label><i class="server icon"></i>O sistema está no online?</label>
 
                                 <div class="ui radio checkbox">
                                     <input type="radio" name="radioOn" value="1" >
@@ -128,15 +128,18 @@ session_start();
                             <label>Quais Tecnologias foram usadas?</label>
                             <div class="ui checkbox">
                                 <input type="checkbox" name="tecnologia[]" class="hidden" value="HTML">
-                                <label>HTML</label>
+                                <label>
+                                <i class="html5 icon"></i>
+                                HTML
+                                </label>
                             </div>
                             <div class="ui checkbox">
                             <input type="checkbox"  name="tecnologia[]" class="hidden" value="CSS">
-                                <label>CSS</label>
+                                <label><i class="css3 alternate icon"></i>CSS</label>
                             </div>
                             <div class="ui checkbox">
                             <input type="checkbox"  name="tecnologia[]"class="hidden" value="JavaScript">
-                                <label>JavaScript</label>
+                                <label><i class="js square icon"></i>JavaScript</label>
                             </div>
                             <div class="ui checkbox">
                             <input type="checkbox"  name="tecnologia[]" class="hidden" value="JQuery">
