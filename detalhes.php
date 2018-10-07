@@ -58,6 +58,7 @@ foreach ($arrTecnologias as $value) {
     <title>Estácio Web Projects</title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
 </head>
 <body>
     <div class="wrapper">
@@ -91,7 +92,7 @@ foreach ($arrTecnologias as $value) {
 
         </header>
         <div>
-        <h1 class="h1-logo">Estácio Web Projects</h1>
+        <h1 class="h1-logo fadeInLeftBig">Estácio Web Projects</h1>
         </div>
        
           <!--PRINCIPAL-->        
@@ -102,9 +103,9 @@ foreach ($arrTecnologias as $value) {
             </div>
 
             <div class="ui segment " style="margin: 0 50px 10px; background: rgba(224, 223, 235, 0.8) ">
-            <img class="ui medium bordered centered image" src="img/projetos/<?php echo rand(1, 10);?>.jpg"/>
+            <img class="ui large bordered left floated image animated fadeInLeft" src="img/projetos/<?php echo rand(1, 10);?>.jpg"/>
             <h4 class="ui horizontal divider header">
-                <i class="tag icon"></i>
+                <i class="code branch icon"></i>
                 Descrição
                 </h4>
                 <p><?php echo $descricao;?></p>
@@ -115,11 +116,11 @@ foreach ($arrTecnologias as $value) {
                 <table class="ui definition table">
                 <tbody>
                     <tr>
-                    <td class="two wide column">Está no Git Hub?</td>
+                    <td class="two wide column"><i class="github icon"></i>Está no Git Hub?</td>
                     <td><?php echo ($radioGit == 1) ?"Sim" : "Não";?></td>
                     </tr>
                     <tr>
-                    <td>Link do Git</td>
+                    <td><i class="github icon"></i>Link do Git</td>
                     <td><a href="www.github.com">www.github.com</a></td>
                     </tr>
                     <tr>
@@ -141,7 +142,7 @@ foreach ($arrTecnologias as $value) {
                 </tbody>
                 </table>
                 <h4 class="ui horizontal divider header">
-                <i class="tag icon"></i>
+                <i class="users icon"></i>
                 Quais foram os maiores desafios para implementar esse projeto?
                 </h4>
                 <p><?php echo $comentario;?></p>
@@ -154,11 +155,13 @@ foreach ($arrTecnologias as $value) {
         </main>
         
 
-    <footer class="footer">Footer</footer>
+       <footer class="footer">
+          <p>Copyright <i class="copyright outline icon"></i>  - Paulo Tarcisio, Thiago Romualdo - 2018</p>
+        </footer>
+    
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
+     <script src="js/jquery.min.js"></script>
     <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
 </body>
 

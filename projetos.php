@@ -8,7 +8,7 @@
         $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
         $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
         //setar a quantidade de itens por pagina
-        $qnt_resultados_pg = 5;
+        $qnt_resultados_pg = 10;
     
            //calcular o inicio visualizacao
          $inicio = ($qnt_resultados_pg * $pagina) - $qnt_resultados_pg;   
@@ -28,6 +28,7 @@
     <title>Estácio Web Projects</title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
 
 </head>
 
@@ -64,7 +65,7 @@
             </nav>
         </header>
         <div>
-        <h1 class="h1-logo">Estácio Web Projects</h1>
+        <h1 class="h1-logo animated fadeInLeftBig">Estácio Web Projects</h1>
         </div>
        
         
@@ -83,7 +84,7 @@ while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)){
     $data = $linha["createdate"];             
 ?>                 
                                  
-                        <a href="detalhes.php?id=<?php echo$id;?>" class="card">
+                        <a href="detalhes.php?id=<?php echo$id;?>" id="cardAnimado" class="card animated zoomIn">
                             <div class="image">
                                 <img src="img/projetos/<?php echo rand(1, 10);?>.jpg">
                             </div>
@@ -149,12 +150,14 @@ while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)){
 
                
 
-           <footer class="footer">Footer</footer>
+      <footer class="footer">
+          <p>Copyright <i class="copyright outline icon"></i>  - Paulo Tarcisio, Thiago Romualdo - 2018</p>
+        </footer>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
+     <script src="js/jquery.min.js"></script>
     <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
+    
 </body>
 
 </html>

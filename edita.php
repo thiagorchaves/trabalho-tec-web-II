@@ -80,6 +80,7 @@ foreach ($arrTecnologias as $value) {
     <title>Estácio Web Projects</title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
 </head>
 <body>
     <div class="wrapper">
@@ -113,7 +114,7 @@ foreach ($arrTecnologias as $value) {
 
         </header>
         <div>
-        <h1 class="h1-logo">Estácio Web Projects</h1>
+        <h1 class="h1-logo animated fadeInLeftBig">Estácio Web Projects</h1>
         </div>
 
        
@@ -247,8 +248,7 @@ foreach ($arrTecnologias as $value) {
     <footer class="footer">Footer</footer>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
 
     <script>

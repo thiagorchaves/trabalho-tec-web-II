@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <title>Sobre nós - Estácio Web Projects</title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    
 
 </head>
 
 <body>
     <div class="wrapper">
-
+    
         <!--HEADER-->
         <header class="header-topo">
         <nav class="nav">
@@ -44,18 +46,16 @@
         <!--PRINCIPAL-->
         <main class="main-index">
         <div class="ui text container div-get-started">
-      <h1 class="ui inverted header" >
+      <h1 class="ui inverted header animated lightSpeedIn " >
         Estácio Web Projects
             </h1>
-            <h2>Já pensou em visualizar todos os sistemas web criado pelos alunos da Estácio?</h2>
+            <h2 class="animated flipInX ">Já pensou em visualizar todos os sistemas web criado pelos alunos da Estácio?</h2>
             <h3>Aqui é possível! :)</h3>
             <a href="projetos.php"><div class="ui huge black button">Quero ver!<i class="right arrow icon"></i></div></a>
             </div>
         </main>
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
 </body>
 

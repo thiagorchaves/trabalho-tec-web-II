@@ -59,11 +59,19 @@ html,body {
 
 
 .footer {
+  height: 80px ; 
   background: rgba(226, 233, 239, 0.5) ;
   color: white;
-
   padding: 10px;
-  margin-top: 100px;
+  margin-top: 169px;
+}
+
+.footer >p{
+  margin-top: 20px ;   
+  color: #365572;
+  text-shadow: 2px 2px 2px #abbfca; 
+  font-size: 20px; 
+  text-transform: uppercase;
 }
 
 .flex-container{

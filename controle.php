@@ -21,6 +21,7 @@
     <title>Estácio Web Projects</title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="./css/animate.min.css">
 </head>
 <body>
     <div class="wrapper">
@@ -54,7 +55,7 @@
             </nav>         
         </header>
         <div>
-        <h1 class="h1-logo">Estácio Web Projects</h1>
+        <h1 class="h1-logo fadeInLeftBig">Estácio Web Projects</h1>
         </div>
         <!--PRINCIPAL-->
         <main class="main">
@@ -167,11 +168,12 @@ while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)) {
     ?>
         </main>
    
-        <footer class="footer">Footer</footer>
+        <footer class="footer">
+          <p>Copyright <i class="copyright outline icon"></i>  - Paulo Tarcisio, Thiago Romualdo - 2018</p>
+        </footer>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-        crossorigin="anonymous"></script>
+     <script src="js/jquery.min.js"></script>
     <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
     <script src="js/form-js.js"></script>
     <script>
