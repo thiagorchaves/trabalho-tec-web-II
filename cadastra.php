@@ -106,7 +106,7 @@ session_start();
                         <!--online? + link do on-->
                         <div class="two fields centralizado">
                             <div class="field">
-                                <label><i class="server icon"></i>O sistema está no online?</label>
+                                <label><i class="server icon"></i>O sistema está online?</label>
                                 <div class="ui radio checkbox">
                                     <input type="radio" name="radioOn" value="1" >
                                     <label>Sim</label>
