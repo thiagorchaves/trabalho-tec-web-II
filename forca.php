@@ -15,6 +15,7 @@
 		onFailure: function(){ alert('Something went wrong...') }
 	  });
 	}
+
 	function iniciar() {
 		$('inicio').hide();
 		$('main_2').show();
