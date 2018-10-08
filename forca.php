@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Forca</title>
-	<link rel="StyleSheet" href="css/style.css" TYPE="text/css" />
+	<link rel="StyleSheet" href="css_forca/style.css" TYPE="text/css" />
     <META http-equiv="Content-Type" content="text/html" charset="UTF8">
 	<script language="javascript">
 	function teste(){
