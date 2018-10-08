@@ -2,7 +2,7 @@
 <head>
 	<title>Forca</title>
 	<link rel="StyleSheet" href="css/style.css" TYPE="text/css" />
-    <META http-equiv="Content-Type" content="text/html; charset=UTF8">
+    <META http-equiv="Content-Type" content="text/html" charset="UTF8">
 	<script language="javascript">
 	function teste(){
 		new Ajax.Request('funcoes.php',	{
@@ -39,7 +39,7 @@
 		new Ajax.Updater('main_2','funcoes.php', {
 				method:'get',
 				parameters: {action: 'add_letra', letra: letra, completa: completa, palavra: palavra},
-				onComplete: check_win();
+				onComplete: check_win()
 			});
 		$('total_letras').replace('<span id="total_letras">'+total_letras+letra+","+'</span>');
 		$('letra').replace('<input type="textbox" id="letra" maxlength="1" align="center" size="3"/>');
@@ -49,7 +49,9 @@
 	function check_win(){
 		var completa = $('completa').getValue();
 		var palavra = $('palavra').innerHTML;
+		
 		if (completa == palavra) {
+			debugger
 			alert("Você Venceu!");
 			return;
 		}
@@ -57,7 +59,7 @@
 	</script>
 </head>
 <body onLoad="script:loading();">
-<script type="text/javascript" src="js/prototype.js"></script>
+<script type="text/javascript" src="js_forca/prototype.js"></script>
 
 <div id="div_main" class="div_geral">
 	<h1>Jogo da Forca</h1>
@@ -69,7 +71,7 @@
 		<input type='button' onclick='script:iniciar();' value='Iniciar' />
 	</div>
 	<div id="adicionar" class="div_geral">
-		<input type="textbox" id="letra" maxlength="1" align="center" size="3"/>
+		<input type="textbox" id="letra" maxlength="1"  size="3"/>
 		<input type="button" id="add_letra" value="Adicionar" onclick="script:add_letra();" />
 		<div class="div_geral">
 			Letras já usadas: <span id="total_letras"></span>

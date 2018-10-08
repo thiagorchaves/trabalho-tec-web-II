@@ -33,9 +33,9 @@
                         <a href="controle.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
                             Painel de Controle
                         </a>
-                        <a class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                            Logout
-                        </a>
+                        <a href="forca.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
+                                Jogo da Forca
+                            </a>
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@
                 <i class="child icon"></i>
                 Nossa Motivação
                 </h4>
-                <p style="margin: auto 10%;">O projeto surgiu com a finalizade de centralizar os projetos desenvolvidos pelos
+                <p  class="centralizado" style="margin: auto 10%;">O projeto surgiu com a finalizade de centralizar os projetos desenvolvidos pelos
                 alunos de TI da Estácio. Estimulando-os a implementarem na prática os conhecimentos adquiridos
                 na faculdade. </p>
                 <h4 style="margin-top:90px" class="ui horizontal divider header">
@@ -105,11 +105,9 @@
 </div>
             </div>
 
-
-
         </main>
 
-        <footer class="footer">
+        <footer class="footer centralizado">
           <p>Copyright <i class="copyright outline icon"></i>  - Paulo Tarcisio, Thiago Romualdo - 2018</p>
         </footer>
     </div>

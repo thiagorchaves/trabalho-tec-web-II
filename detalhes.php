@@ -83,9 +83,9 @@ foreach ($arrTecnologias as $value) {
                     <a href="controle.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
                         Painel de Controle
                     </a>
-                    <a class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Logout
-                    </a>
+                    <a href="forca.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
+                                Jogo da Forca
+                            </a>
                 </div>
             </nav>
 
@@ -108,8 +108,8 @@ foreach ($arrTecnologias as $value) {
                 <i class="code branch icon"></i>
                 Descrição
                 </h4>
-                <p><?php echo $descricao;?></p>
-                <h4 class="ui horizontal divider header">
+                <p class="centralizado"><?php echo $descricao;?></p>
+                <h4 style="margin-top: 150px" class="ui horizontal divider header">
                 <i class="bar chart icon"></i>
                 Detalhes
                 </h4>
@@ -145,7 +145,7 @@ foreach ($arrTecnologias as $value) {
                 <i class="users icon"></i>
                 Quais foram os maiores desafios para implementar esse projeto?
                 </h4>
-                <p><?php echo $comentario;?></p>
+                <p class="centralizado"><?php echo $comentario;?></p>
                 <h4 class="ui horizontal divider header">
                
             </div>
@@ -155,7 +155,7 @@ foreach ($arrTecnologias as $value) {
         </main>
         
 
-       <footer class="footer">
+       <footer class="footer centralizado">
           <p>Copyright <i class="copyright outline icon"></i>  - Paulo Tarcisio, Thiago Romualdo - 2018</p>
         </footer>
     

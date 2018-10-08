@@ -11,7 +11,6 @@ html,body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  text-align: center;
   
 }
 /*MENU*/
@@ -30,13 +29,6 @@ html,body {
    text-transform: uppercase;
 }
 
-.main-index{
-  background: rgb(54, 85, 114,0.6);
-  min-width: 100%;
-  min-height: 600px;
-  padding-bottom: 5px;
-}
-
 .main {
     margin: 0 auto;
     background: rgb(54, 85, 114,0.4);
@@ -44,19 +36,25 @@ html,body {
     max-width: 71%;
     padding-bottom: 5px;
 
+
   }
 
-.div-get-started{
-  padding-top: 10%;
-}
+  .main-index{
+    background: rgb(54, 85, 114,0.8);
+    min-height: 905px;
+  }
+
 .div-get-started > h1.ui.inverted.header{
   color: #e2e9ef;
   text-shadow: 2px 2px 2px black; 
   font-size: 50px;
   text-transform: uppercase;
-  
+  padding-top: 300px;
 }
 
+.centralizado{
+  text-align: center;
+}
 
 .footer {
   height: 80px ; 

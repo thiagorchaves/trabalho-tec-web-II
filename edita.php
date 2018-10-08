@@ -2,7 +2,7 @@
 session_start();
  include 'banco/conecta.php'; 
 if(isset($_POST['editar'])) {
-    include 'banco/edit.php';
+    include 'banco/update.php';
 }else{             
                       
 $id = $_GET["id"];                   
@@ -105,9 +105,9 @@ foreach ($arrTecnologias as $value) {
                     <a href="controle.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
                         Painel de Controle
                     </a>
-                    <a class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Logout
-                    </a>
+                    <a href="forca.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
+                                Jogo da Forca
+                            </a>
                 </div>
             </nav>
 
@@ -134,18 +134,18 @@ foreach ($arrTecnologias as $value) {
                 <form class="ui form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 
  <!--Nome-->
- <div class="inline fields">
-     <label>Nome do Projeto</label>
+ <div class="field">
+     <label>Nome do Projeto*</label>
      <input type="text" name="id" value="<?php echo $id; ?>" hidden>
      <input type="text" name="nome" value="<?php echo $nome; ?>" >
  </div>
  <!--Descricao-->
- <div class="inline fields">
-     <label>Descrição</label>
+ <div class="field">
+     <label>Descrição*</label>
      <textarea rows="2" name="descricao" style="height: 73px;"><?php echo $descricao; ?></textarea>
  </div>
  <!--Git-->
- <div class="two fields">
+ <div class="two fields centralizado">
      <div class="field">
          <label>O projeto está no GitHub?</label>
          <div class="ui radio checkbox">
@@ -164,7 +164,7 @@ foreach ($arrTecnologias as $value) {
      </div>
  </div>
   <!--online? + link do on-->
-  <div class="two fields">
+  <div class="two fields centralizado">
      <div class="field">
          <label>O sistema está no online?</label>
 
@@ -180,57 +180,59 @@ foreach ($arrTecnologias as $value) {
 
      </div>
        <!--online?-->
-      <div class="field">
+      <div class="field ">
          <label>Link do sistema</label>
          <input type="text" name="urlOnline" value="<?php echo $url_online; ?>">
      </div>
  </div>
- <!--Categoria-->
-     <div class="field">
-         <label>Categoria</label>
-         <select name="combobox"class="ui search dropdown">
-             <option value="games" <?php echo $valor=($categoria == 'games')? 'selected': ''?> >Games</option>
-             <option value="esportes" <?php echo $valor=($categoria == 'esportes')? 'selected':''?> >Esportes</option>
-             <option value="política" <?php echo $valor=($categoria == 'política')?  'selected':''?> >Política</option>
-             <option value="nerd" <?php echo $valor=($categoria == 'nerd')?  'selected':''?>>Nerd</option>
-             <option value="adulto" <?php echo $valor=($categoria == 'adulto')?  'selected':''?>>Adulto</option>
-             <option value="outros" <?php echo $valor=($categoria == 'outros')?  'selected':''?>>Outros</option>
-         </select>
-     </div>
- <!--Tecnologias-->
- <div class="field">
-     <label>Quais Tecnologias foram usadas?</label>
-     <div class="ui checkbox">
-         <input type="checkbox" name="tecnologia[]" class="hidden" value="HTML" <?php echo $HTML; ?>>
-         <label>HTML</label>
-     </div>
-     <div class="ui checkbox">
-     <input type="checkbox"  name="tecnologia[]" class="hidden" value="CSS" <?php echo $CSS; ?>>
-         <label>CSS</label>
-     </div>
-     <div class="ui checkbox">
-     <input type="checkbox"  name="tecnologia[]"class="hidden" value="JavaScript" <?php echo $JAVASCRIPT; ?>>
-         <label>JavaScript</label>
-     </div>
-     <div class="ui checkbox">
-     <input type="checkbox"  name="tecnologia[]" class="hidden" value="JQuery" <?php echo $JQUERY; ?>> 
-         <label>JQuery</label>
-     </div>
-     <div class="ui checkbox">
-     <input type="checkbox"  name="tecnologia[]"class="hidden" value="BootStrap" <?php echo $BOOTSTRAP; ?>>
-         <label>BootStrap</label>
-     </div>
-     <div class="ui checkbox">
-     <input type="checkbox"  name="tecnologia[]"class="hidden" value="MySql" <?php echo $MYSQL; ?>>
-         <label>MySql</label>
-     </div>
-     <div class="ui checkbox">
-     <input type="checkbox" name="tecnologia[]"class="hidden" value="Outros" <?php echo $OUTROS; ?>>
-         <label>Outros</label>
-     </div>
- </div>
+ <div class="two fields centralizado">
+    <!--Categoria-->
+        <div class="inline field">
+            <label>Categoria</label>
+            <select name="combobox"class="ui search dropdown">
+                <option value="games" <?php echo $valor=($categoria == 'games')? 'selected': ''?> >Games</option>
+                <option value="esportes" <?php echo $valor=($categoria == 'esportes')? 'selected':''?> >Esportes</option>
+                <option value="política" <?php echo $valor=($categoria == 'política')?  'selected':''?> >Política</option>
+                <option value="nerd" <?php echo $valor=($categoria == 'nerd')?  'selected':''?>>Nerd</option>
+                <option value="adulto" <?php echo $valor=($categoria == 'adulto')?  'selected':''?>>Adulto</option>
+                <option value="outros" <?php echo $valor=($categoria == 'outros')?  'selected':''?>>Outros</option>
+            </select>
+        </div>
+    <!--Tecnologias-->
+    <div class="field">
+        <label>Quais Tecnologias foram usadas?</label>
+        <div class="ui checkbox">
+            <input type="checkbox" name="tecnologia[]" class="hidden" value="HTML" <?php echo $HTML; ?>>
+            <label>HTML</label>
+        </div>
+        <div class="ui checkbox">
+        <input type="checkbox"  name="tecnologia[]" class="hidden" value="CSS" <?php echo $CSS; ?>>
+            <label>CSS</label>
+        </div>
+        <div class="ui checkbox">
+        <input type="checkbox"  name="tecnologia[]"class="hidden" value="JavaScript" <?php echo $JAVASCRIPT; ?>>
+            <label>JavaScript</label>
+        </div>
+        <div class="ui checkbox">
+        <input type="checkbox"  name="tecnologia[]" class="hidden" value="JQuery" <?php echo $JQUERY; ?>> 
+            <label>JQuery</label>
+        </div>
+        <div class="ui checkbox">
+        <input type="checkbox"  name="tecnologia[]"class="hidden" value="BootStrap" <?php echo $BOOTSTRAP; ?>>
+            <label>BootStrap</label>
+        </div>
+        <div class="ui checkbox">
+        <input type="checkbox"  name="tecnologia[]"class="hidden" value="MySql" <?php echo $MYSQL; ?>>
+            <label>MySql</label>
+        </div>
+        <div class="ui checkbox">
+        <input type="checkbox" name="tecnologia[]"class="hidden" value="Outros" <?php echo $OUTROS; ?>>
+            <label>Outros</label>
+        </div>
+    </div>
+    </div> 
  <!--Desafios-->
- <div class="field">
+ <div class="field centralizado">
      <label>Quais foram os maiores desafios para construir esse projeto?</label>
      <textarea style="margin-top: 0px; margin-bottom: 0px; height: 112px;" name="desafios"><?php echo $comentario; ?></textarea>
  </div>

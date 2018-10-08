@@ -46,9 +46,9 @@
                         <a href="controle.php" class="ui item active" style="font-size: 14px;color:#365572; text-transform: uppercase;   background: rgb(114, 150, 171,0.4);">
                             Painel de Controle
                         </a>
-                        <a class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                            Logout
-                        </a>
+                        <a href="forca.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
+                                Jogo da Forca
+                            </a>
                     </div>
                 </div>
 
@@ -168,7 +168,7 @@ while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)) {
     ?>
         </main>
    
-        <footer class="footer">
+        <footer class="footer centralizado">
           <p>Copyright <i class="copyright outline icon"></i>  - Paulo Tarcisio, Thiago Romualdo - 2018</p>
         </footer>
     </div>

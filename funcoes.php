@@ -15,7 +15,7 @@ if ($_GET['action'] == '') {
 	switch ($action) {
 		case 'iniciar':
 			//Pega uma lista de palavras
-			$palavras = array("carro","corrida","cena","dedos","caminhada","acusador");
+			$palavras = array("tubarao","rato","leao","coelho","tartaruga","cachorro");
 			//Embaralha
 			shuffle($palavras);
 			echo "<div id='box_palavra' class='div_geral'>

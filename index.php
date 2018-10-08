@@ -34,9 +34,9 @@
                         <a href="controle.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
                             Painel de Controle
                         </a>
-                        <a class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                            Logout
-                        </a>
+                        <a href="forca.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
+                                Jogo da Forca
+                            </a>
                     </div>
                 </div>
 
@@ -45,13 +45,13 @@
   
         <!--PRINCIPAL-->
         <main class="main-index">
-        <div class="ui text container div-get-started">
-      <h1 class="ui inverted header animated lightSpeedIn " >
+        <div class="div-get-started centralizado" >
+      <h1 class="ui inverted header animated flipInX item" >
         Estácio Web Projects
             </h1>
-            <h2 class="animated flipInX ">Já pensou em visualizar todos os sistemas web criado pelos alunos da Estácio?</h2>
+            <h2 class="animated flipInX item">Já pensou em visualizar todos os sistemas web criado pelos alunos da Estácio?</h2>
             <h3>Aqui é possível! :)</h3>
-            <a href="projetos.php"><div class="ui huge black button">Quero ver!<i class="right arrow icon"></i></div></a>
+            <a href="projetos.php"><div class="ui huge black button item">Quero ver!<i class="right arrow icon"></i></div></a>
             </div>
         </main>
     </div>
