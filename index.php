@@ -34,7 +34,7 @@
                         <a href="controle.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
                             Painel de Controle
                         </a>
-                        <a href="forca2.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
+                        <a href="forca.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
                                 Jogo da Forca
                             </a>
                     </div>
