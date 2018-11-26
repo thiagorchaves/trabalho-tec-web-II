@@ -4,6 +4,10 @@ CREATE DATABASE projetos;
 CREATE TABLE projetos.project (
   id int(11) NOT NULL AUTO_INCREMENT,
   nome varchar(255) NOT NULL,
+  nome_projeto varchar(255) NOT NULL,
+  login varchar(255) NOT NULL,
+  password varchar (255) NOT NULL,  
+  email varchar (255) NOT NULL,
   description text NOT NULL,
   have_git tinyint (1) NOT NULL,
   online tinyint(1) NOT NULL,
