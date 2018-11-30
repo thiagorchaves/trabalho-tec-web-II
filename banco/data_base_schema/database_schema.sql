@@ -22,7 +22,8 @@ CREATE TABLE projetos.user (
   user_id int(11) NOT NULL AUTO_INCREMENT,
   nome varchar(255) NOT NULL,
   login varchar(255) NOT NULL,
-  password varchar (255) NOT NULL,  
+  password varchar (255) NOT NULL,
+  image_url varchar (255) NOT NULL,
   email varchar (255) NOT NULL,
   createdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (user_id)
