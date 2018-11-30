@@ -18,7 +18,26 @@ html,body {
   background: rgba(226, 233, 239, 0.9) ;
   text-shadow: 1px 1px 1px white;
  }
+.login-container{
+  background: rgba(226, 233, 239, 0.9) ;
+  max-width: 960px;
+  padding-top: 10px; 
+  margin: 5% auto;
+  border-radius: 4px;
+  box-shadow: 5px 10px 18px #888888;
+}
+.h1Diff{
+  padding-top: 50px; 
+   color: #365572;
+   text-shadow: 2px 2px 2px #abbfca; 
+   font-size: 80px; 
+   text-align: center;
+   text-transform: uppercase;
+}
 
+.login-container h1{
+  text-align: center;
+}
 .h1-logo{
   padding: 0px;
    margin: 0px ;   

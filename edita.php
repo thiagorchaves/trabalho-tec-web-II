@@ -1,5 +1,6 @@
  <?php
-session_start();
+
+include "login/validar.php";
  include 'banco/conecta.php'; 
 if(isset($_POST['editar'])) {
     include 'banco/update.php';

@@ -1,62 +1,149 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <title>Sobre nós - Estácio Web Projects</title>
+    <title>Login - Estácio Web Projects</title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
     <link rel="stylesheet" href="./css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    
 
 </head>
 
 <body>
-    <div class="wrapper">
-    
-        <!--HEADER-->
-        <header class="header-topo">
-        <nav class="nav">
-                <div class="ui secondary pointing menu">
-                    <a href="index.php"class="item item-menu active" style="font-size: 14px;color:#365572; text-transform: uppercase;   background: rgb(114, 150, 171,0.4);">
-                        Home
-                    </a>
-                    <a href="projetos.php" class="item " style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Projetos
-                    </a>
-                    <a href="cadastra.php" class="item " style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Cadastrar projeto
-                    </a>
-                    <a href="sobreNos.php" class="item " style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Sobre nós
-                    </a>
-                    <div class="right menu">
-                        <a href="controle.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                            Painel de Controle
-                        </a>
-                        <a href="forca.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                                Jogo da Forca
-                            </a>
-                    </div>
+<h1 class="animated fadeInLeftBig h1Diff">Estácio Web Projects</h1>
+<?php  if( isset($_SESSION['needLogin'])){         
+            echo $_SESSION['needLogin']; 
+            unset($_SESSION['needLogin']);
+        }
+        ?>
+        <section>
+            <div class="login-container">
+                <h1>Fazer Login</h1>
+              <?php  if( isset($_SESSION['error'])){         
+            echo $_SESSION['error']; 
+            unset($_SESSION['error']);
+        }
+        ?>
+         <?php  if( isset($_SESSION['UserNotFound'])){         
+            echo $_SESSION['UserNotFound']; 
+            unset($_SESSION['UserNotFound']);
+        }
+        ?>
+              <?php  if( isset($_SESSION['passError'])){         
+            echo $_SESSION['passError']; 
+            unset($_SESSION['passError']);
+        }
+        ?>
+     
+                <div class="ui placeholder segment" id="divLogin">
+                    <div class="ui two column very relaxed stackable grid">
+                        <div class="column">
+                            <form class="ui form" action="login/login.php" method="POST">
+                                <div class="field">
+                                <label>Usuário</label>
+                                <div class="ui left icon input">
+                                    <input type="text" name="userName" placeholder="Digite o seu nome de usuário">
+                                    <i class="user icon"></i>
+                                </div>
+                                </div>
+                                <div class="field">
+                                <label>Password</label>
+                                <div class="ui left icon input">
+                                    <input type="password" name="senha">
+                                    <i class="lock icon"></i>
+                                </div>
+                                </div>
+                                <input class="ui blue submit button  "type="submit" value="Entrar"></input>
+                            </form>
+                        </div>    
+                        <div class="middle aligned column centralizado" >
+                            <div class="ui big button" onclick="exibeFormCadastro()"><i class="signup icon"></i> Cadastrar </div>
+                            </div>
+                            
+                        </div>
+                        <div class="ui vertical divider">Ou </div>
                 </div>
+                              
+                <div class="ui placeholder segment" id="divCreateUser" style="display : none">
+                    <div class="ui two column very relaxed stackable grid">
+                        <div class="column">
+                            <form class="ui form" action="login/cadastrar.php" method="POST">
+                                <div class="field">
+                                <label>Usuário</label>
+                                <div class="ui left icon input">
+                                    <input type="text" name="userName" placeholder="Digite o seu nome de usuário">
+                                    <i class="user icon"></i>
+                                </div>
+                                </div>
+                                <div class="field">
+                                    <label>Nome</label>
+                                    <div class="ui left icon input">
+                                        <input type="text" name="name" placeholder="Digite o seu nome">
+                                        <i class="user icon"></i>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>E-mail</label>
+                                    <div class="ui left icon input">
+                                        <input type="email" name="email" placeholder="Digite o seu nome de email">
+                                        <i class="user icon"></i>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                <label>Password</label>
+                                <div class="ui left icon input">
+                                    <input type="password" name="criaSenha">
+                                    <i class="lock icon"></i>
+                                </div>
+                                </div>
+                                <input class="ui blue submit button  "type="submit" value="Cadastrar"></input>
+                            </form>
+                        </div>
 
-            </nav>
-        </header>
-  
-        <!--PRINCIPAL-->
-        <main class="main-index">
-        <div class="div-get-started centralizado" >
-      <h1 class="ui inverted header animated flipInX item" >
-        Estácio Web Projects
-            </h1>
-            <h2 class="animated flipInX item">Já pensou em visualizar todos os sistemas web criado pelos alunos da Estácio?</h2>
-            <h3>Aqui é possível! :)</h3>
-            <a href="projetos.php"><div class="ui huge black button item">Quero ver!<i class="right arrow icon"></i></div></a>
-            </div>
-        </main>
-    </div>
+                        <div class="middle aligned column centralizado">
+                            <div class="ui big button" onclick="exibeFormCadastro()"><i class="signup icon"></i> Logar </div>
+                            </div>
+                        </div>
+                        <div class="ui vertical divider">Ou </div>
+                </div>
+                
+            </div> 
+        </section>
+
     <script src="js/jquery.min.js"></script>
     <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
+    <script>
+            function exibeFormCadastro(){
+            $divCreateUser = document.querySelector("#divCreateUser");
+            $divLogin = document.querySelector("#divLogin");
+            $h1LoginContainer = document.querySelector(".login-container h1");
+
+            if($divCreateUser.style.display == "block"){
+            
+              $divCreateUser.style.display = "none";
+              $divLogin.style.display = "block";
+              $h1LoginContainer.textContent = "Fazer Login";
+          }else{
+            $h1LoginContainer.textContent = "Cadastrar-se no Sistema";
+            $divCreateUser.style.display = "block";
+            $divLogin.style.display = "none";
+          }
+            }
+
+             $('.message .close')
+                    .on('click', function() {
+                        $(this)
+                        .closest('.message')
+                        .transition('fade')
+                        ;
+                    })
+
+
+    </script>
 </body>
 
 </html>

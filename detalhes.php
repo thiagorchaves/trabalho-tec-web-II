@@ -1,4 +1,5 @@
 <?php
+ include "login/validar.php";
 include 'banco/conecta.php';               
 $id = $_GET["id"];                   
 $sql = "SELECT * FROM project WHERE id='$id'";

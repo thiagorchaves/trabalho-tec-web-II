@@ -1,4 +1,5 @@
-<?php
+<?php   
+        include "login/validar.php";
         include 'banco/conecta.php';
         if( isset($_SESSION['msg']) ){
             echo $_SESSION['msg'];
@@ -36,34 +37,8 @@
     <div class="wrapper">
 
         <!--HEADER-->
-        <header class="header-topo">
-   <!--MENU NAVEGAÇÃO-->
-   <nav class="nav">
-                <div class="ui secondary pointing menu">
-                    <a href="index.php" class="item item-menu" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Home
-                    </a>
-                    <a href="projetos.php" class="item active" style="font-size: 14px;color:#365572; text-transform: uppercase;   background: rgb(114, 150, 171,0.4);">
-                        Projetos
-                    </a>
-                    <a href="cadastra.php" class="item " style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Cadastrar projeto
-                    </a>
-                    <a href="sobreNos.php" class="item " style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Sobre nós
-                    </a>
-                    <div class="right menu">
-                        <a href="controle.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                            Painel de projetos
-                        </a>
-                        <a href="forca.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                                Jogo da Forca
-                            </a>
-                    </div>
-                </div>
-
-            </nav>
-        </header>
+        <?php include "menu.php";?>
+        
         <div>
         <h1 class="h1-logo animated fadeInLeftBig">Estácio Web Projects</h1>
         </div>
