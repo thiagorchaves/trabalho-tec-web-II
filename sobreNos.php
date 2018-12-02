@@ -10,7 +10,6 @@ include "login/validar.php";
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" href="./css/animate.min.css">
-
 </head>
 
 <body>

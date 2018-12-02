@@ -8,8 +8,8 @@ include "login/validar.php";
     <meta charset="UTF-8">
     <title>Estácio Web Projects</title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" href="./css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
     <div class="wrapper">
