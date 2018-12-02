@@ -33,7 +33,7 @@ include "login/validar.php";
         ?>
             <div class="ui segment " style="margin: 0 50px 10px; background: rgba(224, 223, 235, 0.8) ">
            
-                <form  method="post" action="banco/create.php" class="ui form">
+                <form  method="post"  name="upload" action="banco/create.php" class="ui form" enctype="multipart/form-data">
                         <!--Nome-->
                         <?php if( !empty($_SESSION['vazio_nome']) ){ echo "<p style='color:red;'>".$_SESSION['vazio_nome']."</p>"; }?>
                         <div class="field <?php if( !empty($_SESSION['vazio_nome']) ){echo "error"; unset ($_SESSION['vazio_nome']);}?> ">
@@ -55,6 +55,18 @@ include "login/validar.php";
                                 unset ($_SESSION['value_descricao']);
                             }?></textarea>
                         </div>
+
+                        <div class="field <?php if( isset($_SESSION['imgError']) ){echo "error";
+                        
+                        }?> ">
+                          <?php if( isset($_SESSION['imgError']) ){ echo "<p style='color:red;'>Selecione uma imagem com extesão .jpg ou .png ou jpeg.</p>"; 
+                             unset ($_SESSION['imgError']);
+                            }?>  
+                            <input class='inputfile' type="file" name="arquivo" id="imgFile" 
+                            placeholder="Selecione uma imagem que represente o projeto">
+                          
+                        </div>
+
                         <!--Radio + link do Git-->
                         <div class="two fields centralizado">
                             <div class="field">

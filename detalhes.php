@@ -16,6 +16,7 @@ while ($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)) {
     $categoria = $linha["categoria"];
     $tecnologias = $linha["tecnologias"];
     $comentario = $linha["comentario"];
+    $nomeImg = $linha["imagem"];
 
 
 //Tratar CheckBox
@@ -64,34 +65,7 @@ foreach ($arrTecnologias as $value) {
 <body>
     <div class="wrapper">
         <!--HEADER-->
-        <header class="header-topo">
-        <!--MENU NAVEGAÇÃO-->
-            <nav class="nav">
-                <div class="ui secondary pointing menu">
-                    <a href="index.php" class="item item-menu" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Home
-                    </a>
-                    <a href="projetos.php" class="item " style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Projetos
-                    </a>
-                    <a href="cadastra.php" class="item " style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Cadastrar projeto
-                    </a>
-                    <a href="sobreNos.php" class="item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Sobre nós
-                    </a>
-                    <div class="right menu">
-                    <a href="controle.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                        Painel de Controle
-                    </a>
-                    <a href="forca.php" class="ui item" style="font-size: 14px;color:#365572; text-transform: uppercase;">
-                                Jogo da Forca
-                            </a>
-                </div>
-            </nav>
-
-
-        </header>
+        <?php include 'menu.php';?>
         <div>
         <h1 class="h1-logo fadeInLeftBig">Estácio Web Projects</h1>
         </div>
@@ -104,7 +78,8 @@ foreach ($arrTecnologias as $value) {
             </div>
 
             <div class="ui segment " style="margin: 0 50px 10px; background: rgba(224, 223, 235, 0.8) ">
-            <img class="ui large bordered left floated image animated fadeInLeft" src="img/projetos/<?php echo rand(1, 10);?>.jpg"/>
+            <img  style="height:250px" class="ui large bordered left floated image animated fadeInLeft" src="img/projetos/<?php echo $nomeImg;?>">
+            
             <h4 class="ui horizontal divider header">
                 <i class="code branch icon"></i>
                 Descrição

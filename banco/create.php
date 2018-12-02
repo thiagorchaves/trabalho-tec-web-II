@@ -74,9 +74,10 @@ if(empty($_POST["desafios"])){
 }else{
     $_SESSION["value_desafios"] = $_POST['desafios'];
 }
-
-
-
+/************************************** */
+//TRATA upload
+include '../upload/executa_upload.php';
+/************************************** */
 if($validado){
 
 
@@ -87,8 +88,8 @@ $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
 $descricao = mysqli_real_escape_string($conexao, $_POST['descricao']);
 $desafios = mysqli_real_escape_string($conexao, $_POST['desafios']);
 
-$sql = "INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) VALUES (
-'$nome', '$descricao', '$radioGit','$url_git', '$radioOn', '$url_online' ,'$categoria', '$str_tecnologias', '$desafios')";
+$sql = "INSERT INTO project (nome, description, have_git, link_git, online, link_on,imagem, categoria, tecnologias,comentario) VALUES (
+'$nome', '$descricao', '$radioGit','$url_git', '$radioOn', '$url_online' ,'$nomeImg','$categoria', '$str_tecnologias', '$desafios')";
 
 //execucao da query
 $sql = mysqli_query($conexao,$sql) or die ("Ocorreu um erro na gravação dos dados!");

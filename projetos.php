@@ -5,7 +5,6 @@
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
         }
-        
         $pagina_atual = filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
         $pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
         //setar a quantidade de itens por pagina
@@ -17,9 +16,6 @@
         $sql = "SELECT * FROM project LIMIT $inicio, $qnt_resultados_pg";
         
         $resultado = mysqli_query($conexao,$sql) or die ("Não foi possível realizar a consulta ao banco de dados");
-
-        
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,7 +30,7 @@
 </head>
 
 <body>
-    <div class="wrapper">
+
 
         <!--HEADER-->
         <?php include "menu.php";?>
@@ -56,12 +52,13 @@ while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)){
     $id = $linha["id"];
     $nome = $linha["nome"];
     $descricao = $linha["description"];
-    $data = $linha["createdate"];             
+    $data = $linha["createdate"];   
+    $nomeImg = $linha["imagem"];          
 ?>                 
                                  
                         <a href="detalhes.php?id=<?php echo$id;?>" id="cardAnimado" class="card animated zoomIn">
                             <div class="image">
-                                <img src="img/projetos/<?php echo rand(1, 10);?>.jpg">
+                                <img style="height:150px" src="img/projetos/<?php echo $nomeImg;?>">
                             </div>
                             <div class="content">
                                 <div class="header"><?php echo $nome;?></div>
@@ -128,7 +125,6 @@ while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)){
       <footer class="footer centralizado">
           <p>Copyright <i class="copyright outline icon"></i>  - Paulo Tarcisio, Thiago Romualdo - 2018</p>
         </footer>
-    </div>
 
      <script src="js/jquery.min.js"></script>
     <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
