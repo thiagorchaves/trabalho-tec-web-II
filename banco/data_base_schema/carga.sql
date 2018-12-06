@@ -1,45 +1,27 @@
+INSERT INTO project (nome, description, have_git, online, link_on, imagem, link_git, categoria, tecnologias, comentario) 
+VALUES ('Sistema 01', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1','1.jpg','www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER')
+;
+INSERT INTO project (nome, description, have_git, online, link_on, imagem, link_git, categoria, tecnologias, comentario) 
+VALUES ('Sistema 02', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1','2.jpg','www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER')
+;
+INSERT INTO project (nome, description, have_git, online, link_on, imagem, link_git, categoria, tecnologias, comentario) 
+VALUES ('Sistema 03', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1','3.jpg','www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER')
+;
+INSERT INTO project (nome, description, have_git, online, link_on, imagem, link_git, categoria, tecnologias, comentario) 
+VALUES ('Sistema 04', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1','4.jpg','www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER')
+;
+INSERT INTO project (nome, description, have_git, online, link_on, imagem, link_git, categoria, tecnologias, comentario) 
+VALUES ('Sistema 05', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1','5.jpg','www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER')
+;
+INSERT INTO project (nome, description, have_git, online, link_on, imagem, link_git, categoria, tecnologias, comentario) 
+VALUES ('Sistema 06', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1','6.jpg','www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER')
+;
+INSERT INTO project (nome, description, have_git, online, link_on, imagem, link_git, categoria, tecnologias, comentario) 
+VALUES ('Sistema 07', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1','7.jpg','www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER')
+;
+INSERT INTO project (nome, description, have_git, online, link_on, imagem, link_git, categoria, tecnologias, comentario) 
+VALUES ('Sistema 08', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1','8.jpg','www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER')
+;
+INSERT INTO project (nome, description, have_git, online, link_on, imagem, link_git, categoria, tecnologias, comentario) 
+VALUES ('Sistema 09', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1','9.jpg','www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER')
 
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Sistema 01', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Aplicação do Amigo', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Sistema 02', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('App Sinistra', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Trabalho Tec-Web-II', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Programa X', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Software X', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Web-App', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Qualquer outro', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Web-App 02', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Programa XYZ', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Software ABC', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Web-App NodeJS', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('Projeto em PHP', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');
-
-INSERT INTO project (nome, description, have_git, link_git, online, link_on, categoria, tecnologias,comentario) 
-VALUES ('React-Web-Project', 'Esta é uma pequena descricao de até x caracteres', '1' ,'github.com/seuprojeto', '1', 'www.seuprojeto.com' ,'Games', 'HTML,CSS,JAVASCRIPT', 'ESTE É UM COMENTARIO QUALQUER');

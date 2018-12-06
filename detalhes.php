@@ -57,10 +57,11 @@ foreach ($arrTecnologias as $value) {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Estácio Web Projects</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes - <?php echo $nome;?></title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" href="./css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
     <div class="wrapper">
@@ -77,53 +78,65 @@ foreach ($arrTecnologias as $value) {
                 <div class="ui clearing divider"></div>
             </div>
 
-            <div class="ui segment " style="margin: 0 50px 10px; background: rgba(224, 223, 235, 0.8) ">
-            <img  style="height:250px" class="ui large bordered left floated image animated fadeInLeft" src="img/projetos/<?php echo $nomeImg;?>">
-            
-            <h4 class="ui horizontal divider header">
-                <i class="code branch icon"></i>
-                Descrição
-                </h4>
-                <p class="centralizado"><?php echo $descricao;?></p>
-                <h4 style="margin-top: 150px" class="ui horizontal divider header">
-                <i class="bar chart icon"></i>
-                Detalhes
-                </h4>
-                <table class="ui definition table">
-                <tbody>
-                    <tr>
-                    <td class="two wide column"><i class="github icon"></i>Está no Git Hub?</td>
-                    <td><?php echo ($radioGit == 1) ?"Sim" : "Não";?></td>
-                    </tr>
-                    <tr>
-                    <td><i class="github icon"></i>Link do Git</td>
-                    <td><a href="www.github.com">www.github.com</a></td>
-                    </tr>
-                    <tr>
-                    <td>Está Online?</td>
-                    <td>Sim ou nao</td>
-                    </tr>
-                    <tr>
-                    <td>Link Online</td>
-                    <td><a href="http://<?php echo $url_git;?>" target="_blank"><?php echo $url_git;?></a></td>
-                    </tr>
-                    <tr>
-                    <td>Categoria</td>
-                    <td><?php echo $categoria;?></td>
-                    </tr>
-                    <tr>
-                    <td>Tecnologias Utilizadas</td>
-                    <td><?php echo $tecnologias;?></td>
-                    </tr>
-                </tbody>
-                </table>
-                <h4 class="ui horizontal divider header">
-                <i class="users icon"></i>
-                Quais foram os maiores desafios para implementar esse projeto?
-                </h4>
-                <p class="centralizado"><?php echo $comentario;?></p>
-                <h4 class="ui horizontal divider header">
-               
+            <div class="main-content">
+                <div class="detalhes-item">
+                    <img  class="imgCenter animated fadeInLeft" src="img/projetos/<?php echo $nomeImg;?>">
+                        <div class="detalhe-item-descricao">
+                            <h4 class="ui horizontal divider header"><i class="code branch icon"></i>
+                                Descrição
+                            </h4>
+                            <p><?php echo $descricao;?></p>
+                        </div>
+                </div>
+
+                <div class="detalhes-item">
+                    <div class="detalhe-item-detalhes">
+                        <h4 class="ui horizontal divider header">
+                            <i class="bar chart icon"></i>
+                            Detalhes
+                        </h4>
+                        <table class="ui definition table">
+                            <tbody>
+                                <tr>
+                                <td class="two wide column"><i class="github icon"></i>Está no Git Hub?</td>
+                                <td><?php echo ($radioGit == 1) ?"Sim" : "Não";?></td>
+                                </tr>
+                                <tr>
+                                <td><i class="github icon"></i>Link do Git</td>
+                                <td><a href="http://<?php echo $url_git;?>" target="_blank"><?php echo $url_git;?></a></td>
+                                </tr>
+                                <tr>
+                                <td>Está Online?</td>
+                                <td>Sim ou nao</td>
+                                </tr>
+                                <tr>
+                                <td>Link Online</td>
+                                <td><a href="http://<?php echo $url_online;?>" target="_blank"><?php echo $url_online;;?></a></td>
+                                </tr>
+                                <tr>
+                                <td>Categoria</td>
+                                <td><?php echo $categoria;?></td>
+                                </tr>
+                                <tr>
+                                <td>Tecnologias Utilizadas</td>
+                                <td><div><?php echo $tecnologias;?></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="detalhes-item">
+                    <div class="detalhe-item-comentario">
+                        <h4>
+                            <i class="users icon"></i>
+                            Quais foram os maiores desafios para implementar esse projeto?
+                        </h4>
+                        <p class="centralizado"><?php echo $comentario;?></p>
+                        <h4 class="ui horizontal divider header">
+                    </div>
+                </div>
+
             </div>
             <?php
 }//fechando while
@@ -139,6 +152,7 @@ foreach ($arrTecnologias as $value) {
 
      <script src="js/jquery.min.js"></script>
     <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
+    <script src="js/menu.js"></script>
 </body>
 
 </html>

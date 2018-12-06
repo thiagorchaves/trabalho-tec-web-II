@@ -28,7 +28,7 @@ session_start();
 
 			unset($_SESSION['email']);
 			unset($_SESSION['senha']);
-			echo "Voc� n�o est� autenticado no sistema, favor efetuar login";
+			echo "Faça o login!!!";
 			exit;
 			}
 		}
@@ -42,7 +42,7 @@ session_start();
 	}
 	else
 	{
-	$_SESSION['needLogin'] = "<h1 class='h1-logo' style='margin-top: 50px'>Ops... É necessário que você faça o login primeiro.</h1>";
+	$_SESSION['needLogin'] = "<h1 class='h1-notvalidated'>Ops... É necessário que você faça o login primeiro.</h1>";
 	header("Location: index.php");
 	exit;
 	}

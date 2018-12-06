@@ -22,6 +22,7 @@
 
 <head>
     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estácio Web Projects</title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -62,7 +63,7 @@ while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)){
                             </div>
                             <div class="content">
                                 <div class="header"><?php echo $nome;?></div>
-                                <div class="description">
+                                <div class="description1">
                                 <?php echo $descricao;?> </div>
                             </div>
                             <div class="extra content">
@@ -128,7 +129,8 @@ while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)){
 
      <script src="js/jquery.min.js"></script>
     <script src="Semantic-UI-CSS-master/semantic.min.js"></script>
-    
+    <script src="js/menu.js"></script>
+
 </body>
 
 </html>

@@ -11,8 +11,6 @@ if(empty($_POST["nome"])){
 }else{
     $_SESSION["value_nome"] = $_POST['nome'];   
 }
-
-
 /************************************** */
 //TRATA CAMPO DESCRICÃO
 if(empty($_POST["descricao"])){
@@ -23,15 +21,12 @@ if(empty($_POST["descricao"])){
     $_SESSION["value_descricao"] = $_POST['descricao'];
 }
 
-
 /************************************** */
 //TRATAMENTO - RADIO GIT
 $radioGit;
 if( isset($_POST["radioGit"]) ){
     $radioGit = $_POST["radioGit"];
  }
-
-
 
 /************************************** */
 //TRATA URL GIT

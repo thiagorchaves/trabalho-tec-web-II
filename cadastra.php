@@ -6,6 +6,7 @@ include "login/validar.php";
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estácio Web Projects</title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
     <link rel="stylesheet" href="./css/animate.min.css">
@@ -31,7 +32,7 @@ include "login/validar.php";
             unset($_SESSION['msg']);
         }
         ?>
-            <div class="ui segment " style="margin: 0 50px 10px; background: rgba(224, 223, 235, 0.8) ">
+            <div class="main-content">
            
                 <form  method="post"  name="upload" action="banco/create.php" class="ui form" enctype="multipart/form-data">
                         <!--Nome-->
@@ -62,6 +63,7 @@ include "login/validar.php";
                           <?php if( isset($_SESSION['imgError']) ){ echo "<p style='color:red;'>Selecione uma imagem com extesão .jpg ou .png ou jpeg.</p>"; 
                              unset ($_SESSION['imgError']);
                             }?>  
+                            <label>Imagem do projeto*</label>
                             <input class='inputfile' type="file" name="arquivo" id="imgFile" 
                             placeholder="Selecione uma imagem que represente o projeto">
                           
@@ -216,5 +218,6 @@ include "login/validar.php";
         })()
 
     </script>
+     <script src="js/menu.js"></script>
 </body>
 </html>

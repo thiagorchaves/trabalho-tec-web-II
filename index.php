@@ -6,6 +6,7 @@ session_start();
 
 <head>
     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Estácio Web Projects</title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
     <link rel="stylesheet" href="./css/animate.min.css">
@@ -14,7 +15,7 @@ session_start();
 </head>
 
 <body>
-<h1 class="animated fadeInLeftBig h1Diff">Estácio Web Projects</h1>
+<h1 class="animated fadeInLeftBig">Estácio Web Projects</h1>
 <?php  if( isset($_SESSION['needLogin'])){         
             echo $_SESSION['needLogin']; 
             unset($_SESSION['needLogin']);
@@ -65,10 +66,10 @@ session_start();
                             </div>
                             
                         </div>
-                        <div class="ui vertical divider">Ou </div>
+                        <div class="ui vertical divider divisor">Ou </div>
                 </div>
                               
-                <div class="ui placeholder segment" id="divCreateUser" style="display : none">
+                <div class="ui placeholder segment" id="divCreateUser" style="display: none">
                     <div class="ui two column very relaxed stackable grid">
                         <div class="column">
                             <form class="ui form" action="login/cadastrar.php" method="POST">
@@ -108,7 +109,7 @@ session_start();
                             <div class="ui big button" onclick="exibeFormCadastro()"><i class="signup icon"></i> Logar </div>
                             </div>
                         </div>
-                        <div class="ui vertical divider">Ou </div>
+                        
                 </div>
                 
             </div> 

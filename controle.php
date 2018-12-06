@@ -18,6 +18,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estácio Web Projects</title>
     <link rel="stylesheet" type="text/css" href="Semantic-UI-CSS-master/semantic.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -44,12 +45,11 @@
        }
         ?>       
 
-            <div class="ui segment " style="margin: 0px 50px 10px;">
+            <div class="main-content">
             <div class="field">
                              <button class="ui black button" onclick="window.open('cadastra.php','_self')">Cadastrar novo projeto</button>
                         </div>   
 
-                
                     <table class="ui striped table">
                         <thead>
                             <tr>
@@ -162,6 +162,7 @@ while($linha=mysqli_fetch_array($resultado,MYSQLI_ASSOC)) {
         })()
 
     </script>
+     <script src="js/menu.js"></script>
 </body>
 
 </html>
