@@ -103,7 +103,7 @@ foreach ($arrTecnologias as $value) {
                                 </tr>
                                 <tr>
                                 <td><i class="github icon"></i>Link do Git</td>
-                                <td><a href="http://<?php echo $url_git;?>" target="_blank"><?php echo $url_git;?></a></td>
+                                <td><a href="<?php echo $url_git;?>" target="_blank"><?php echo $url_git;?></a></td>
                                 </tr>
                                 <tr>
                                 <td>Está Online?</td>
@@ -111,7 +111,7 @@ foreach ($arrTecnologias as $value) {
                                 </tr>
                                 <tr>
                                 <td>Link Online</td>
-                                <td><a href="http://<?php echo $url_online;?>" target="_blank"><?php echo $url_online;;?></a></td>
+                                <td><a href="<?php echo $url_online;?>" target="_blank"><?php echo $url_online;;?></a></td>
                                 </tr>
                                 <tr>
                                 <td>Categoria</td>
